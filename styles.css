@@ -1,0 +1,60 @@
+html, body {
+    margin: 0; /* Remove default browser margins */
+    padding: 0;
+}
+
+.master-container{
+    background-color: black;
+    box-sizing: border-box;
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+}
+
+.openbtn{
+    border-radius: 10px;
+    height: 3rem;
+    margin-top: 20px;
+    margin-left: 20px;
+    position: fixed;
+    transition: 0.5s;
+    width: 4rem;
+    z-index: 10;
+}
+
+.sidebar{
+    background-color: darkgreen;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    width: 0;
+    position: fixed;
+    top: 0;
+    transition: 0.5s;
+    z-index: 0;
+}
+
+.sidebar h1{
+    padding: 8px 32px;
+    text-align: center;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.addbtn{
+    border-radius: 10px;;
+    height: 3rem;
+    width: 4rem;
+}
+
+
+.books{
+    padding: 20px;
+    transition: margin-left .5s;
+}
