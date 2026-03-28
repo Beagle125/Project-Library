@@ -44,13 +44,14 @@ html, body {
     text-align: center;
     color: black;
     display: block;
-    transition: 0.3s;
+    transition: 0s;
 }
 
 .addbtn{
     border-radius: 10px;;
     height: 3rem;
     width: 6rem;
+    transition: 0s;
 }
 
 
