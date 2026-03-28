@@ -14,7 +14,26 @@
             <button class="addbtn" command="show-modal" commandfor="my-dialog">Add book</button>
         </div>
         <dialog id="my-dialog">
-            <p>This dialog was opened.</p>
+            <form id="my-form" method="dialog">
+                <h1>Enter Book Details:</h1>
+                <fieldset>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+                </fieldset>
+                <fieldset>
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author">
+                </fieldset>
+                <fieldset>
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="pages">
+                </fieldset>
+                <fieldset>
+                    <label for="read">Is read</label>
+                    <input type="checkbox" id="read" name="read" value="unchecked">
+                </fieldset>
+            </form>
+            <button type="submit" form="my-form">Submit</button>
             <button commandfor="my-dialog" command="close">Cancel</button>
         </dialog>
         <div class="books">
