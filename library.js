@@ -1,6 +1,16 @@
 // Delcare my library database in an array
 const myLibrary = [];
 
+// Declare other variables
+const sidebar = document.querySelector(".sidebar");
+const button = document.querySelector(".openbtn");
+const main = document.querySelector(".books");
+const openModalBtn = document.querySelector(".addbtn");
+const closeModalBtn = document.querySelector(".cancelbtn");
+const submitModalBtn = document.querySelector(".submitbtn");
+const myDialog = document.querySelector(".my-dialog");
+
+// The constructor for a book object
 function Book(title, author, pages, read, ID){
     if (!new.target)
         throw Error("You must tse the 'new' operator.");
@@ -16,17 +26,15 @@ function Book(title, author, pages, read, ID){
     };
 }
 
+// function for library
 function addBookToLibrary(title, author, pages, read){
     let uuid = self.crypto.randomUUID();
     let newBook = new Book(title, author, pages, read, uuid);
     myLibrary.push(newBook);
 }
 
+// Functions for transition effect
 function toggleNav(){
-    const sidebar = document.querySelector(".sidebar");
-    const button = document.querySelector(".openbtn");
-    const main = document.querySelector(".books");
-
     if (sidebar.style.width === "250px") {
         button.style.width = "5rem";
         sidebar.style.width = "0";
@@ -38,3 +46,4 @@ function toggleNav(){
         main.style.marginLeft = "250px";
     }
 }
+
