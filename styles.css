@@ -1,10 +1,13 @@
 html, body {
     margin: 0; /* Remove default browser margins */
     padding: 0;
+    --background-color: #D1E3D7;
+    --button-color: #94dbc2;
+    -side-panel-color: #89d9db;
 }
 
 .master-container{
-    background-color: black;
+    background-color: var(--background-color);
     box-sizing: border-box;
     display: grid;
     height: 100vh;
@@ -12,7 +15,9 @@ html, body {
 }
 
 .openbtn{
+    background-color: var(--button-color);
     border-radius: 10px;
+    color: black;
     height: 3rem;
     margin-top: 20px;
     margin-left: 20px;
@@ -23,7 +28,8 @@ html, body {
 }
 
 .sidebar{
-    background-color: darkgreen;
+    background-color: #00DEE0;
+    color: black;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -48,6 +54,7 @@ html, body {
 }
 
 .addbtn{
+    background-color: var(--button-color);
     border-radius: 10px;;
     height: 3rem;
     width: 6rem;
