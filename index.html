@@ -14,27 +14,39 @@
             <button class="addbtn" command="show-modal" commandfor="my-dialog">Add book</button>
         </div>
         <dialog id="my-dialog">
-            <form id="my-form" method="dialog">
-                <h1>Enter Book Details:</h1>
-                <fieldset>
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" placeholder="e.g. Atomic Habits">
-                </fieldset>
-                <fieldset>
-                    <label for="author">Author</label>
-                    <input type="text" id="author" name="author" placeholder="e.g. James Clear">
-                </fieldset>
-                <fieldset>
-                    <label for="pages">Pages</label>
-                    <input type="number" id="pages" name="pages" placeholder="e.g. 367">
-                </fieldset>
-                <fieldset>
-                    <label for="read">Is read</label>
-                    <input type="checkbox" id="read" name="read" value="unchecked">
-                </fieldset>
-            </form>
-            <button type="submit" form="my-form">Submit</button>
-            <button commandfor="my-dialog" command="close">Cancel</button>
+            <div class="my-dialog-wrapper">
+                <div class="my-dialog-header">
+                    <p>Add a book<p>
+                    <p>"There is no friend as loyal as a book</p>
+                </div>
+                <form id="my-form" method="dialog">
+                    <div class="my-form-left">
+                        <div class="my-form-item">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" name="title" placeholder="e.g. Atomic Habits">
+                        </div>
+                        <div class="my-form-item">
+                            <label for="author">Author</label>
+                            <input type="text" id="author" name="author" placeholder="e.g. James Clear">
+                        </div>
+
+                    </div>
+                    <div class="my-form-right">
+                        <div class="my-form-item">
+                            <label for="pages">Pages</label>
+                            <input type="number" id="pages" name="pages" placeholder="e.g. 367">
+                        </div>
+                        <div class="my-form-item-checkbox">
+                            <input type="checkbox" id="read" name="read" value="unchecked">
+                            <label for="read">Is read</label>
+                        </div>
+                    </div>
+                </form>
+                <div class="my-dialog-button-section">
+                    <button type="submit" form="my-form">Submit</button>
+                    <button commandfor="my-dialog" command="close">Cancel</button>
+                </div>
+            </div>
         </dialog>
         <div class="books">
             <h2>Main Website Content</h2>

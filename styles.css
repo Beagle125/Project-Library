@@ -1,9 +1,10 @@
+/*Master container styles*/
 html, body {
     margin: 0; /* Remove default browser margins */
     padding: 0;
     --background-color: #D1E3D7;
     --button-color: #94dbc2;
-    -side-panel-color: #89d9db;
+    --side-panel-color: #89d9db;
 }
 
 .master-container{
@@ -27,8 +28,9 @@ html, body {
     z-index: 10;
 }
 
+/*Sidebar styles*/
 .sidebar{
-    background-color: #00DEE0;
+    background-color: var(--side-panel-color);
     color: black;
     display: flex;
     flex-direction: column;
@@ -61,7 +63,72 @@ html, body {
     transition: 0s;
 }
 
+/*Modal styles*/
+#my-dialog{
+    border-radius: 10px;
+    position: absolute;
+    width: clamp(200px, 520px, 520px);
+}
 
+.my-dialog-wrapper{
+    display: grid;
+    grid-template-rows: 3fr 5fr 1fr;
+}
+
+.my-dialog-header{
+    grid-row: 1 / 2;
+    border-bottom: solid #d3d3d3;
+}
+
+.my-dialog-header p:first-of-type{
+    font-size: 24px;
+}
+
+.my-dialog-header p:last-of-type{
+    font-style: italic;
+}
+.my-dialog-wrapper form{
+    align-items: center;
+    display: grid;
+    flex-direction: column;
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 2 / 3;
+    justify-content: center;
+}
+
+.my-form-left,
+.my-form-right{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.my-form-item{
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-form-item-checkbox{
+    align-self: end;
+}
+
+.my-dialog-button-section{
+    grid-row: 3 / 4;
+}
+
+.my-dialog-button-section button{
+    background-color: var(--button-color);
+    border-radius: 5px;
+    height: 38px;
+    padding: 10px 20px;
+}
+
+.my-dialog-button-section button:last-of-type{
+    background-color: white;
+}
+
+/*Main library styles*/
 .books{
     padding: 20px;
     transition: margin-left .5s;
