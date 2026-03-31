@@ -2,9 +2,10 @@
 html, body {
     margin: 0; /* Remove default browser margins */
     padding: 0;
-    --background-color: #D1E3D7;
-    --button-color: #94dbc2;
-    --side-panel-color: #89d9db;
+    --background-color: #F2EAE0;
+    --dark-background-color: #e8dfd3;
+    --button-color: #BDA6CE;
+    --side-panel-color: #B4D3D9;
 
     --font-size-title: 2rem;
     --font-size-body: 1rem;
@@ -34,6 +35,7 @@ html, body {
     display: flex;
     justify-content: center;
     margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .side-panel-header img{
@@ -63,6 +65,7 @@ html, body {
 
 /*Modal styles*/
 #my-dialog{
+    background-color: var(--background-color);
     border-radius: 10px;
     opacity: 0;
     position: absolute;
@@ -118,6 +121,7 @@ html, body {
 }
 
 .my-form-item input{
+    background-color: var(--dark-background-color);
     border: 1px solid;
     border-radius: 10px;
     height: 40px;
@@ -142,7 +146,7 @@ html, body {
 }
 
 .my-dialog-button-section button:last-of-type{
-    background-color: white;
+    background-color: var(--background-color);
 }
 
 /*Main library styles*/
