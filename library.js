@@ -1,14 +1,6 @@
 // Delcare my library database in an array
 const myLibrary = [];
 
-// Declare other variables
-const sidebar = document.querySelector(".sidebar");
-const button = document.querySelector(".openbtn");
-const main = document.querySelector(".books");
-const openModalBtn = document.querySelector(".addbtn");
-const closeModalBtn = document.querySelector(".cancelbtn");
-const submitModalBtn = document.querySelector(".submitbtn");
-const myDialog = document.querySelector(".my-dialog");
 
 // The constructor for a book object
 function Book(title, author, pages, read, ID){
@@ -34,16 +26,5 @@ function addBookToLibrary(title, author, pages, read){
 }
 
 // Functions for transition effect
-function toggleNav(){
-    if (sidebar.style.width === "250px") {
-        button.style.width = "5rem";
-        sidebar.style.width = "0";
-        main.style.marginLeft = "0";
-    } 
-    else {
-        sidebar.style.width = "250px";
-        button.style.width = "200px";
-        main.style.marginLeft = "250px";
-    }
-}
+
 

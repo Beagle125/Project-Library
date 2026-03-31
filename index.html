@@ -8,16 +8,32 @@
 </head>
 <body>
     <div class="master-container">
-        <button class="openbtn" onclick="toggleNav()">☰</button>
-        <div class="sidebar">
-            <h1>Add to your collection:</h1>
-            <button class="addbtn" command="show-modal" commandfor="my-dialog">Add book</button>
+        <div class="side-panel">
+            <div class="side-panel-header">
+                <img alt="logo" src="./static/material-symbols--book-5-outline-rounded.svg">
+                <p>Book Beagle</p>
+            </div>
+            <button class="addbtn" command="show-modal" commandfor="my-dialog">+New Book</button>
+            <div class="side-panel-stats-container">
+                <div class="side-panel-stats-item">
+                    <span class="stat-book">0</span>
+                    <span class="stat-name">Books</span>
+                </div>
+                <div class="side-panel-stats-item">
+                    <span class="stat-read">0</span>
+                    <span class="stat-name">Read</span>
+                </div>
+                <div class="side-panel-stats-item">
+                    <span class="stat-unread">0</span>
+                    <span class="stat-name">Unread</span>
+                </div>
+            </div>
         </div>
         <dialog id="my-dialog">
             <div class="my-dialog-wrapper">
                 <div class="my-dialog-header">
                     <p>Add a book<p>
-                    <p>"There is no friend as loyal as a book</p>
+                    <p>"There is no friend as loyal as a book"</p>
                 </div>
                 <form id="my-form" method="dialog">
                     <div class="my-form-left">
@@ -49,7 +65,7 @@
             </div>
         </dialog>
         <div class="books">
-            <h2>Main Website Content</h2>
+            
         </div>
     </div>
     <script src="./library.js"></script>
