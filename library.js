@@ -5,8 +5,11 @@ const myLibrary = [];
 const form = document.getElementById("my-form");
 const dialog = document.getElementById("my-dialog");
 let title, author, pages, read;
-let nBook, nRead, nUnread;
+let nBook = 0, nRead = 0, nUnread = 0;
 
+document.querySelector(".stat-book").textContent = nBook;
+document.querySelector(".stat-read").textContent = nRead;
+document.querySelector(".stat-unread").textContent = nUnread;
 
 
 // The constructor for a book object
@@ -42,9 +45,50 @@ form.addEventListener("submit", (event) =>{
     read = document.getElementById("read");
 
     addBookToLibrary(title, author, pages, read);
+    updateBook(read, 1);
+    
     dialog.close();
+    form.reset();
 });
 
 // functions for transition effect
 
+
+// code for tracking the stats
+/*
+Stat flag legend:
+0 -  remove a book
+1 -  add a book
+2 -  modify read status
+*/ 
+function updateBook(read, statFlag){
+    switch (statFlag){
+        case 0:
+            nBook--;
+            nRead--;
+            nUnread--;
+            break;
+
+        case 1:
+            if (read.checked){
+                nRead++;
+            }
+            else{
+                nUnread++;
+            }
+            nBook++;
+            break;
+        case 2:
+            if (read.checked){
+                nRead++;
+            }
+            else{
+                nUnread--;
+            }
+    }
+
+    document.querySelector(".stat-book").textContent = nBook;
+    document.querySelector(".stat-read").textContent = nRead;
+    document.querySelector(".stat-unread").textContent = nUnread;
+}
 
