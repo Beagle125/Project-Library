@@ -35,7 +35,12 @@ form.addEventListener("submit", (event) =>{
     event.preventDefault();
 
     // Extract the data
-    title = document.g
+    title = document.getElementById("title").value;
+    author = document.getElementById("author").value;
+    pages = document.getElementById("pages").value;
+    read = document.getElementById("read");
+
+    addBookToLibrary(title, author, pages, read);
 });
 
 // functions for transition effect
