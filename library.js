@@ -2,7 +2,8 @@
 const myLibrary = [];
 
 // Declare variables
-const form = document.querySelector('.my-form');
+const form = document.getElementById("my-form");
+const dialog = document.getElementById("my-dialog");
 let title, author, pages, read;
 let nBook, nRead, nUnread;
 
@@ -41,6 +42,7 @@ form.addEventListener("submit", (event) =>{
     read = document.getElementById("read");
 
     addBookToLibrary(title, author, pages, read);
+    dialog.close();
 });
 
 // functions for transition effect
