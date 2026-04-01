@@ -1,6 +1,12 @@
 // Delcare my library database in an array
 const myLibrary = [];
 
+// Declare variables
+const form = document.querySelector('.my-form');
+let title, author, pages, read;
+let nBook, nRead, nUnread;
+
+
 
 // The constructor for a book object
 function Book(title, author, pages, read, ID){
@@ -18,13 +24,20 @@ function Book(title, author, pages, read, ID){
     };
 }
 
-// function for library
+// function and code adding to library
 function addBookToLibrary(title, author, pages, read){
     let uuid = self.crypto.randomUUID();
     let newBook = new Book(title, author, pages, read, uuid);
     myLibrary.push(newBook);
 }
 
-// Functions for transition effect
+form.addEventListener("submit", (event) =>{
+    event.preventDefault();
+
+    // Extract the data
+    title = document.g
+});
+
+// functions for transition effect
 
 
