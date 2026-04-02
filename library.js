@@ -37,6 +37,7 @@ function addBookToLibrary(title, author, pages, read){
 
     // code for manipulating the DOM
     const content = document.createElement("div");
+    content.className = "book-content";
     content.id = uuid;
 
     const titleNode = document.createElement("p");
@@ -121,10 +122,13 @@ function updateBook(read, statFlag){
 // code for removing books
 document.addEventListener("click", (event) =>{
     if (event.target.classList.contains("delete-button")){
-        const bookItem = event.target.closest("div");
+        const bookItem = event.target.closest(".book-content");
+        const bookItemID = bookItem.id.trim().toLowerCase();
 
         // Remove from array
-        const bookIndex = myLibrary.findIndex(book => book.ID === bookItem.dataset.id);
+        const bookIndex = myLibrary.findIndex(book =>{
+            return String(book.ID).trim().toLowerCase() === bookItemID;
+        });
         myLibrary.splice(bookIndex, 1);
 
         // Remove from the DOM
