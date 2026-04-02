@@ -4,6 +4,7 @@ const myLibrary = [];
 // Declare variables
 const form = document.getElementById("my-form");
 const dialog = document.getElementById("my-dialog");
+const bookContainer = document.querySelector(".books");
 let title, author, pages, read;
 let nBook = 0, nRead = 0, nUnread = 0;
 
@@ -33,6 +34,29 @@ function addBookToLibrary(title, author, pages, read){
     let uuid = self.crypto.randomUUID();
     let newBook = new Book(title, author, pages, read, uuid);
     myLibrary.push(newBook);
+
+    // code for manipulating the DOM
+    const content = document.createElement("div");
+    content.id = uuid;
+
+    const titleNode = document.createElement("p");
+    titleNode.textContent = `Title: ${title}`;
+
+    const authorNode = document.createElement("p");
+    authorNode.textContent = `by ${author}`;
+
+    const PagesNode = document.createElement("p");
+    PagesNode.textContent = `by ${pages}`;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete Book";
+
+
+    content.appendChild(titleNode);
+    content.appendChild(authorNode);
+    content.appendChild(PagesNode);
+
+    bookContainer.appendChild(content);
 }
 
 form.addEventListener("submit", (event) =>{
@@ -91,4 +115,6 @@ function updateBook(read, statFlag){
     document.querySelector(".stat-read").textContent = nRead;
     document.querySelector(".stat-unread").textContent = nUnread;
 }
+
+
 
