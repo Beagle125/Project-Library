@@ -46,15 +46,17 @@ function addBookToLibrary(title, author, pages, read){
     authorNode.textContent = `by ${author}`;
 
     const PagesNode = document.createElement("p");
-    PagesNode.textContent = `by ${pages}`;
+    PagesNode.textContent = `${pages} pages`;
 
     const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button";
     deleteButton.textContent = "Delete Book";
 
 
     content.appendChild(titleNode);
     content.appendChild(authorNode);
     content.appendChild(PagesNode);
+    content.appendChild(deleteButton);
 
     bookContainer.appendChild(content);
 }
@@ -115,6 +117,20 @@ function updateBook(read, statFlag){
     document.querySelector(".stat-read").textContent = nRead;
     document.querySelector(".stat-unread").textContent = nUnread;
 }
+
+// code for removing books
+document.addEventListener("click", (event) =>{
+    if (event.target.classList.contains("delete-button")){
+        const bookItem = event.target.closest("div");
+
+        // Remove from array
+        const bookIndex = myLibrary.findIndex(book => book.ID === bookItem.dataset.id);
+        myLibrary.splice(bookIndex, 1);
+
+        // Remove from the DOM
+        bookItem.remove();
+    }
+});
 
 
 
