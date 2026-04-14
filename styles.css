@@ -168,4 +168,33 @@ html, body {
 .card-upper{
     background: black;
     border-radius: 10px 10px 0 0;
+    font-size: var(--font-size-body);
+    grid-row: 1 / 2;
+}
+
+.card-middle{
+    grid-row: 2 / 3;
+    padding-left: 1em;
+}
+
+.card-lower{
+    grid-row: 3 / 4;
+    padding-left: 1em;
+}
+
+.toggle-button{
+    border: 1px solid;
+    border-radius: 5px;
+    font-family: serif;
+    height: 38px;
+    padding: 10px 20px;
+}
+
+.delete-button{
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: var(--button-color);
+    font-family: serif;
+    height: 38px;
+    padding: 10px 20px;
 }

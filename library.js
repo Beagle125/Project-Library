@@ -62,10 +62,10 @@ function addBookToLibrary(title, author, pages, read){
     readButton.className = "toggle-button";
 
     if (read.checked){
-        readButton.textContent = "Mark Unread";
+        readButton.textContent = "Read";
     }
     else{
-        readButton.textContent = "Mark Read";
+        readButton.textContent = "Not Read";
     }
 
     const deleteButton = document.createElement("button");
@@ -154,10 +154,10 @@ document.addEventListener("click", (event) =>{
         myLibrary[bookIndex].read = !(myLibrary[bookIndex].read);
 
         if (myLibrary[bookIndex].read){
-            event.target.textContent = "Mark Unread";
+            event.target.textContent = "Read";
         }
         else{
-            event.target.textContent = "Mark Read";
+            event.target.textContent = "Not Read";
         }
 
         // update the stats
