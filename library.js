@@ -5,7 +5,7 @@ const myLibrary = [];
 const form = document.getElementById("my-form");
 const dialog = document.getElementById("my-dialog");
 const bookContainer = document.querySelector(".books");
-let title, author, pages, read;
+let title, author, pages, hiddenRead, read;
 let nBook = 0, nRead = 0, nUnread = 0;
 
 document.querySelector(".stat-book").textContent = nBook;
@@ -52,12 +52,13 @@ function addBookToLibrary(title, author, pages, read){
     const lowerDiv = document.createElement("div");
 
     const readButton = document.createElement("button");
+    readButton.className = "toggle-button";
 
     if (read.checked){
-        readButton.textContent = "Toggle Unread";
+        readButton.textContent = "Mark Unread";
     }
     else{
-        readButton.textContent = "Toggle Read";
+        readButton.textContent = "Mark Read";
     }
 
     const deleteButton = document.createElement("button");
@@ -84,9 +85,10 @@ form.addEventListener("submit", (event) =>{
     author = document.getElementById("author").value;
     pages = document.getElementById("pages").value;
     read = document.getElementById("read");
+    hiddenRead = read.checked ? true : false;
 
-    addBookToLibrary(title, author, pages, read);
-    updateBook(read, 1);
+    addBookToLibrary(title, author, pages, hiddenRead);
+    updateBook();
     
     dialog.close();
     form.reset();
@@ -96,49 +98,24 @@ form.addEventListener("submit", (event) =>{
 
 
 // code for tracking the stats
-/*
-Stat flag legend:
-0 -  remove a book
-1 -  add a book
-2 -  modify read status
-*/ 
-function updateBook(read, statFlag){
-    switch (statFlag){
-        case 0:
-            if (read.checked){
-                nRead--;
-            }
-            else{
-                nUnread--;
-            }
-            nBook--;
-            break;
-
-        case 1:
-            if (read.checked){
-                nRead++;
-            }
-            else{
-                nUnread++;
-            }
-            nBook++;
-            break;
-        case 2:
-            if (read.checked){
-                nRead++;
-            }
-            else{
-                nUnread--;
-            }
+function updateBook(){
+    nBook = 0, nRead = 0, nUnread = 0;
+    for (const book of myLibrary){
+        nBook++;
+        if (book.read){
+            nRead++;
+        }
+        else{
+            nUnread++;
+        }
     }
-
     document.querySelector(".stat-book").textContent = nBook;
     document.querySelector(".stat-read").textContent = nRead;
     document.querySelector(".stat-unread").textContent = nUnread;
 }
 
-// code for removing books
 document.addEventListener("click", (event) =>{
+    // code for removing books
     if (event.target.classList.contains("delete-button")){
         const bookItem = event.target.closest(".book-content");
         const bookItemID = bookItem.id.trim().toLowerCase();
@@ -147,15 +124,37 @@ document.addEventListener("click", (event) =>{
         const bookIndex = myLibrary.findIndex(book =>{
             return String(book.ID).trim().toLowerCase() === bookItemID;
         });
+
+        // update the stats
+        updateBook();
+
         myLibrary.splice(bookIndex, 1);
 
         // Remove from the DOM
         bookItem.remove();
+    }
+
+    // code for toggling read or unread books
+    else if (event.target.classList.contains("toggle-button")){
+        const bookItem = event.target.closest(".book-content");
+        const bookItemID = bookItem.id.trim().toLowerCase();
+
+        const bookIndex = myLibrary.findIndex(book =>{
+            return String(book.ID).trim().toLowerCase() === bookItemID;
+        });
+
+        // change the status of the book
+        myLibrary[bookIndex].read = !(myLibrary[bookIndex].read);
+
+        if (myLibrary[bookIndex].read){
+            event.target.textContent = "Mark Unread";
+        }
+        else{
+            event.target.textContent = "Mark Read";
+        }
 
         // update the stats
-        updateBook(bookItemRead, 0);
+        updateBook();
     }
 });
-
-
 
