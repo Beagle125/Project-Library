@@ -125,11 +125,11 @@ document.addEventListener("click", (event) =>{
             return String(book.ID).trim().toLowerCase() === bookItemID;
         });
 
-        // update the stats
-        updateBook();
-
         myLibrary.splice(bookIndex, 1);
 
+        // update the stats
+        updateBook();
+        
         // Remove from the DOM
         bookItem.remove();
     }
