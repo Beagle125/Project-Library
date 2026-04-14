@@ -50,10 +50,12 @@ function addBookToLibrary(title, author, pages, read){
     lowerDiv.className = "card-lower"
 
     const titleNode = document.createElement("p");
-    titleNode.textContent = `Title: ${title}`;
+    titleNode.textContent = `${title}`;
+    titleNode.className = "card-title";
 
     const authorNode = document.createElement("p");
-    authorNode.textContent = `by ${author}`;
+    authorNode.textContent = `${author}`;
+    authorNode.className = "card-author";
 
     const PagesNode = document.createElement("p");
     PagesNode.textContent = `${pages} pages`;

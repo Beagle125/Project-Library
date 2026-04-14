@@ -180,8 +180,21 @@ html, body {
 }
 
 .card-middle{
+    align-items: center;
     grid-row: 2 / 3;
     padding-left: 1em;
+}
+
+.card-title{
+    font-family: serif;
+    font-size: var(--font-size-title);
+    margin-bottom: 0;
+}
+
+.card-author{
+    font-family: serif;
+    font-size: var(--font-size-body);
+    font-style: italic;
 }
 
 .card-lower{
@@ -199,6 +212,7 @@ html, body {
     border-radius: 5px;
     font-family: serif;
     height: 38px;
+    margin-right: 1rem;
     padding: 10px 20px;
 }
 
