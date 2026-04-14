@@ -151,6 +151,14 @@ html, body {
 
 /*Main library styles*/
 .books{
+    display: grid;
     padding: 20px;
-    transition: margin-left .5s;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.book-content{
+    background-color: var(--dark-background-color);
+    border-radius: 10px;
+    height: 250px;
 }
