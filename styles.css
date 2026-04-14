@@ -160,5 +160,12 @@ html, body {
 .book-content{
     background-color: var(--dark-background-color);
     border-radius: 10px;
+    display: grid;
+    grid-template-rows: 2fr 2fr 1fr;
     height: 250px;
+}
+
+.card-upper{
+    background: black;
+    border-radius: 10px 10px 0 0;
 }

@@ -40,6 +40,15 @@ function addBookToLibrary(title, author, pages, read){
     content.className = "book-content";
     content.id = uuid;
 
+    const upperDiv = document.createElement("div");
+    upperDiv.className = "card-upper";
+
+    const middleDiv = document.createElement("div");
+    middleDiv.className = "card-middle";
+
+    const lowerDiv = document.createElement("div");
+    lowerDiv.className = "card-lower"
+
     const titleNode = document.createElement("p");
     titleNode.textContent = `Title: ${title}`;
 
@@ -48,8 +57,6 @@ function addBookToLibrary(title, author, pages, read){
 
     const PagesNode = document.createElement("p");
     PagesNode.textContent = `${pages} pages`;
-
-    const lowerDiv = document.createElement("div");
 
     const readButton = document.createElement("button");
     readButton.className = "toggle-button";
@@ -65,13 +72,16 @@ function addBookToLibrary(title, author, pages, read){
     deleteButton.className = "delete-button";
     deleteButton.textContent = "Delete Book";
 
+    middleDiv.appendChild(titleNode);
+    middleDiv.appendChild(authorNode);
+    middleDiv.appendChild(PagesNode);
+
     lowerDiv.appendChild(readButton);
     lowerDiv.appendChild(deleteButton);
 
 
-    content.appendChild(titleNode);
-    content.appendChild(authorNode);
-    content.appendChild(PagesNode);
+    content.appendChild(upperDiv);
+    content.appendChild(middleDiv);
     content.appendChild(lowerDiv);
 
     bookContainer.appendChild(content);
@@ -93,9 +103,6 @@ form.addEventListener("submit", (event) =>{
     dialog.close();
     form.reset();
 });
-
-// functions for transition effect
-
 
 // code for tracking the stats
 function updateBook(){
@@ -158,3 +165,4 @@ document.addEventListener("click", (event) =>{
     }
 });
 
+// functions for transition effect
