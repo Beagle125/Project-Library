@@ -15,8 +15,9 @@ html, body {
     background-color: var(--background-color);
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    height: 100vh;
+    grid-template-columns: 1.8fr 6fr;
+    height: auto;
+    min-height: 100vh;
     width: 100vw;
 }
 
@@ -27,7 +28,10 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 100%;
     justify-content: center;
+    position: fixed;
+    width: 300px;
 }
 
 .side-panel-header{
@@ -68,7 +72,7 @@ html, body {
     background-color: var(--background-color);
     border-radius: 10px;
     opacity: 0;
-    position: absolute;
+    position: fixed;
     transition: opacity 0.3s ease-out;
     width: clamp(200px, 520px, 520px);
 }
@@ -154,7 +158,9 @@ html, body {
     display: grid;
     padding: 20px;
     gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-column: 2 / 3;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    height: auto;
 }
 
 .book-content{
@@ -162,7 +168,7 @@ html, body {
     border-radius: 10px;
     display: grid;
     grid-template-rows: 2fr 2fr 1fr;
-    height: 250px;
+    height: 20rem;
 }
 
 .card-upper{
