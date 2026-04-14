@@ -61,16 +61,8 @@ function addBookToLibrary(title, author, pages, read){
     const readButton = document.createElement("button");
     readButton.className = "toggle-button";
 
-    if (read.checked){
-        readButton.textContent = "Read";
-    }
-    else{
-        readButton.textContent = "Not Read";
-    }
-
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-button";
-    deleteButton.textContent = "Delete Book";
 
     middleDiv.appendChild(titleNode);
     middleDiv.appendChild(authorNode);
@@ -152,13 +144,6 @@ document.addEventListener("click", (event) =>{
 
         // change the status of the book
         myLibrary[bookIndex].read = !(myLibrary[bookIndex].read);
-
-        if (myLibrary[bookIndex].read){
-            event.target.textContent = "Read";
-        }
-        else{
-            event.target.textContent = "Not Read";
-        }
 
         // update the stats
         updateBook();
