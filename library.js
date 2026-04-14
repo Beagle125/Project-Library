@@ -49,15 +49,23 @@ function addBookToLibrary(title, author, pages, read){
     const PagesNode = document.createElement("p");
     PagesNode.textContent = `${pages} pages`;
 
+    const lowerDiv = document.createElement("div");
+
+    const readButton = document.createElement("button");
+    readButton.textContent = "Toggle Read";
+
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-button";
     deleteButton.textContent = "Delete Book";
+
+    lowerDiv.appendChild(readButton);
+    lowerDiv.appendChild(deleteButton);
 
 
     content.appendChild(titleNode);
     content.appendChild(authorNode);
     content.appendChild(PagesNode);
-    content.appendChild(deleteButton);
+    content.appendChild(lowerDiv);
 
     bookContainer.appendChild(content);
 }
