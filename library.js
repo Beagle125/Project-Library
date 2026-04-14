@@ -52,7 +52,13 @@ function addBookToLibrary(title, author, pages, read){
     const lowerDiv = document.createElement("div");
 
     const readButton = document.createElement("button");
-    readButton.textContent = "Toggle Read";
+
+    if (read.checked){
+        readButton.textContent = "Toggle Unread";
+    }
+    else{
+        readButton.textContent = "Toggle Read";
+    }
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-button";
@@ -99,9 +105,13 @@ Stat flag legend:
 function updateBook(read, statFlag){
     switch (statFlag){
         case 0:
+            if (read.checked){
+                nRead--;
+            }
+            else{
+                nUnread--;
+            }
             nBook--;
-            nRead--;
-            nUnread--;
             break;
 
         case 1:
@@ -132,7 +142,7 @@ document.addEventListener("click", (event) =>{
     if (event.target.classList.contains("delete-button")){
         const bookItem = event.target.closest(".book-content");
         const bookItemID = bookItem.id.trim().toLowerCase();
-
+        
         // Remove from array
         const bookIndex = myLibrary.findIndex(book =>{
             return String(book.ID).trim().toLowerCase() === bookItemID;
@@ -141,6 +151,9 @@ document.addEventListener("click", (event) =>{
 
         // Remove from the DOM
         bookItem.remove();
+
+        // update the stats
+        updateBook(bookItemRead, 0);
     }
 });
 
