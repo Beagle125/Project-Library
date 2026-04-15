@@ -69,8 +69,8 @@ form.addEventListener("submit", (event) =>{
         reader.readAsDataURL(coverImg);
     }
     else{
-        upperDiv.style.backgroundImage = "none";
-        upperDiv.style.backgroundColor = "#000";
+        upperDiv.style.backgroundImage = `url(./static/placeholderImage.png)`;
+        upperDiv.style.backgroundColor = "#ffffff";
     }
 
     const middleDiv = document.createElement("div");

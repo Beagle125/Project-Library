@@ -189,7 +189,9 @@ html, body {
 }
 
 .card-upper{
-    background: black;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
     border-radius: 10px 10px 0 0;
     font-size: var(--font-size-body);
     grid-row: 1 / 2;
