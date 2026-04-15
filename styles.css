@@ -204,7 +204,6 @@ html, body {
 
 .toggle-button{
     background-color: transparent;
-    background-image: url("./static/boxicons--seal-check-filled.svg");
     background-position: center;
     background-repeat: no-repeat;
     border: 1px solid;
@@ -214,6 +213,14 @@ html, body {
     height: 38px;
     margin-right: 1rem;
     padding: 10px 20px;
+}
+
+.toggle-button-read{
+    background-image: url("./static/boxicons--seal-check-filled.svg");
+}
+
+.toggle-button-unread{
+    background-image: url("./static/boxicons--address-book-filled.svg");
 }
 
 .delete-button{

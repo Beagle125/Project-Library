@@ -63,6 +63,11 @@ function addBookToLibrary(title, author, pages, read){
     const readButton = document.createElement("button");
     readButton.className = "toggle-button";
 
+    if (read)
+        readButton.classList.add("toggle-button-read");
+    else
+        readButton.classList.add("toggle-button-unread");
+
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-button";
 
@@ -146,6 +151,17 @@ document.addEventListener("click", (event) =>{
 
         // change the status of the book
         myLibrary[bookIndex].read = !(myLibrary[bookIndex].read);
+
+        // change the button design
+        if (myLibrary[bookIndex].read){
+            event.target.classList.add("toggle-button-read");
+            event.target.classList.remove("toggle-button-unread");
+        }
+        else{
+            event.target.classList.add("toggle-button-unread");
+            event.target.classList.remove("toggle-button-read");
+        }
+
 
         // update the stats
         updateBook();
