@@ -31,6 +31,24 @@ function Book(title, author, pages, read, ID){
 
 // function and code adding to library
 function addBookToLibrary(title, author, pages, read){
+
+}
+
+form.addEventListener("submit", (event) =>{
+    event.preventDefault();
+
+    // Extract the data
+    title = document.getElementById("title").value;
+    author = document.getElementById("author").value;
+    pages = document.getElementById("pages").value;
+    read = document.getElementById("read");
+    input = document.getElementById("coverPic");
+    hiddenRead = read.checked ? true : false;
+
+    // extract the image
+    const coverImg = input.files[0];
+
+    // add the book to the library and create a new item in the DOM
     let uuid = self.crypto.randomUUID();
     let newBook = new Book(title, author, pages, read, uuid);
     myLibrary.push(newBook);
@@ -42,6 +60,18 @@ function addBookToLibrary(title, author, pages, read){
 
     const upperDiv = document.createElement("div");
     upperDiv.className = "card-upper";
+
+    if (coverImg){
+        const reader = new FileReader();
+        reader.onload = function(event){
+            upperDiv.style.backgroundImage = `url(${event.target.result})`;
+        };
+        reader.readAsDataURL(coverImg);
+    }
+    else{
+        upperDiv.style.backgroundImage = "none";
+        upperDiv.style.backgroundColor = "#000";
+    }
 
     const middleDiv = document.createElement("div");
     middleDiv.className = "card-middle";
@@ -84,19 +114,9 @@ function addBookToLibrary(title, author, pages, read){
     content.appendChild(lowerDiv);
 
     bookContainer.appendChild(content);
-}
 
-form.addEventListener("submit", (event) =>{
-    event.preventDefault();
 
-    // Extract the data
-    title = document.getElementById("title").value;
-    author = document.getElementById("author").value;
-    pages = document.getElementById("pages").value;
-    read = document.getElementById("read");
-    hiddenRead = read.checked ? true : false;
-
-    addBookToLibrary(title, author, pages, hiddenRead);
+    // Update the stats
     updateBook();
     
     dialog.close();
@@ -167,5 +187,3 @@ document.addEventListener("click", (event) =>{
         updateBook();
     }
 });
-
-// functions for transition effect
