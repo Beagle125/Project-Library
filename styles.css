@@ -97,12 +97,14 @@ html, body {
 }
 
 .my-dialog-header{
+    align-self: center;
     grid-row: 1 / 2;
     border-bottom: solid #d3d3d3;
 }
 
 .my-dialog-header p:first-of-type{
     font-size: var(--font-size-title);
+    margin-bottom: 0;
 }
 
 .my-dialog-header p:last-of-type{
@@ -144,6 +146,29 @@ html, body {
 
 .my-dialog-button-section{
     grid-row: 3 / 4;
+}
+
+#coverPic::file-selector-button{
+    background-color: transparent;
+    background-image: url("./static/fluent--tab-add-20-filled.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: 1px solid;
+    border-color: var(--darkest-brown);
+    border-radius: 5px;
+    font-size: 0;
+    height: 38px;
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+}
+
+#coverPic::file-selector-button:hover{
+    transform: scale(1.03);
+}
+
+.my-dialog-button-section {
+    margin-top: 1rem;
 }
 
 .my-dialog-button-section button{
