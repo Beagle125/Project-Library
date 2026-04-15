@@ -7,6 +7,7 @@ html, body {
     --darkest-brown: #827c73;
     --button-color: #BDA6CE;
     --side-panel-color: #B4D3D9;
+    --delete-red: #9a4b4b;
 
     --font-size-title: 2rem;
     --font-size-body: 1rem;
@@ -167,9 +168,16 @@ html, body {
 .book-content{
     background-color: var(--dark-background-color);
     border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-rows: 2fr 2fr 1fr;
     height: 20rem;
+    transition: 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-content:hover{
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px) scale(1.05);
 }
 
 .card-upper{
@@ -213,6 +221,11 @@ html, body {
     height: 38px;
     margin-right: 1rem;
     padding: 10px 20px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-button:hover{
+    transform: translateY(-5px) scale(1.05);
 }
 
 .toggle-button-read{
@@ -234,4 +247,11 @@ html, body {
     font-family: serif;
     height: 38px;
     padding: 10px 20px;
+    transition: transform 0.3s ease;
+}
+
+.delete-button:hover{
+    border-color: var(--delete-red);
+    transform: translateY(-5px) scale(1.05);
+    filter: brightness(0) saturate(100%) invert(36%) sepia(13%) saturate(2256%) hue-rotate(314deg) brightness(97%) contrast(85%);
 }
