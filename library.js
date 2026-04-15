@@ -93,7 +93,7 @@ form.addEventListener("submit", (event) =>{
     const readButton = document.createElement("button");
     readButton.className = "toggle-button";
 
-    if (read)
+    if (hiddenRead)
         readButton.classList.add("toggle-button-read");
     else
         readButton.classList.add("toggle-button-unread");
