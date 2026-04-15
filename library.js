@@ -12,7 +12,6 @@ document.querySelector(".stat-book").textContent = nBook;
 document.querySelector(".stat-read").textContent = nRead;
 document.querySelector(".stat-unread").textContent = nUnread;
 
-
 // The constructor for a book object
 function Book(title, author, pages, read, ID){
     if (!new.target)
