@@ -28,11 +28,6 @@ function Book(title, author, pages, read, ID){
     };
 }
 
-// function and code adding to library
-function addBookToLibrary(title, author, pages, read){
-
-}
-
 form.addEventListener("submit", (event) =>{
     event.preventDefault();
 
