@@ -14,12 +14,15 @@ document.querySelector(".stat-unread").textContent = nUnread;
 
 // REFACTORED to use Classes
 class Book{
+    static bookCount = 0;
+
     constructor(title, author, pages, read, ID){
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.read = read;
         this.ID = ID;
+        Book.bookCount++;
     }
 
     showInfo(){
@@ -43,7 +46,7 @@ form.addEventListener("submit", (event) =>{
 
     // add the book to the library and create a new item in the DOM
     let uuid = self.crypto.randomUUID();
-    let newBook = new Book(title, author, pages, read, uuid);
+    let newBook = new Book(title, author, pages, hiddenRead, uuid);
     myLibrary.push(newBook);
 
     // code for manipulating the DOM
@@ -118,16 +121,10 @@ form.addEventListener("submit", (event) =>{
 
 // code for tracking the stats
 function updateBook(){
-    nBook = 0, nRead = 0, nUnread = 0;
-    for (const book of myLibrary){
-        nBook++;
-        if (book.read){
-            nRead++;
-        }
-        else{
-            nUnread++;
-        }
-    }
+    nBook = Book.bookCount; 
+    nRead = (myLibrary.filter((book) => book.read === true)).length; 
+    nUnread = (myLibrary.filter((book) => book.read === false)).length; 
+    
     document.querySelector(".stat-book").textContent = nBook;
     document.querySelector(".stat-read").textContent = nRead;
     document.querySelector(".stat-unread").textContent = nUnread;
@@ -146,6 +143,7 @@ document.addEventListener("click", (event) =>{
 
         myLibrary.splice(bookIndex, 1);
 
+        Book.bookCount--;
         // update the stats
         updateBook();
         
