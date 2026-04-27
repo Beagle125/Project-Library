@@ -12,20 +12,19 @@ document.querySelector(".stat-book").textContent = nBook;
 document.querySelector(".stat-read").textContent = nRead;
 document.querySelector(".stat-unread").textContent = nUnread;
 
-// The constructor for a book object
-function Book(title, author, pages, read, ID){
-    if (!new.target)
-        throw Error("You must tse the 'new' operator.");
-    
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.ID = ID;
+// REFACTORED to use Classes
+class Book{
+    constructor(title, author, pages, read, ID){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.ID = ID;
+    }
 
-    this.info = function(){
+    showInfo(){
         console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`);
-    };
+    }
 }
 
 form.addEventListener("submit", (event) =>{
